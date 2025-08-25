@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>vex games</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  body {
+    background: #000;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  button {
+    font: inherit;
+    font-weight: 900;
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  .hint a {
+    color: #fff;
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+  <button id="launch">vexgames</button>
+  <p id="hint" class="hint" hidden>
+    vex games is here <a href="https://www.google.com/search?sca_esv=e5cef3e958d363d7&rlz=1C1GCEA_enUS1177US1177&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOha3O1YqG67F0QIhAOFN_ob1yXos5K_Qo9Tq-0cVPzex8akBC0YDCZ6Kdb3tXvKc6REgf3vAxmWjii6Zu8D3ukBgEZt85bCNn6rBG2av3G6E0v91S9jMn9vVYvV5PbYPAsdPCdfG5GnDwNbDQn1miZTogqAXbQ&q=gay+butthole+porn&sa=X&ved=2ahUKEwigl8Hj26aPAxWV4skDHb8UNrIQtKgLegQIFRAB&biw=1536&bih=791&dpr=1.25&safe=active&ssui=on" target="_blank">open it directly</a>.
+  </p>
+
+<script>
+const TARGET_URL = "https://www.google.com/search?sca_esv=e5cef3e958d363d7&rlz=1C1GCEA_enUS1177US1177&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeoJTKjrFjVxydQWqI2NcOha3O1YqG67F0QIhAOFN_ob1yXos5K_Qo9Tq-0cVPzex8akBC0YDCZ6Kdb3tXvKc6REgf3vAxmWjii6Zu8D3ukBgEZt85bCNn6rBG2av3G6E0v91S9jMn9vVYvV5PbYPAsdPCdfG5GnDwNbDQn1miZTogqAXbQ&q=gay+butthole+porn&sa=X&ved=2ahUKEwigl8Hj26aPAxWV4skDHb8UNrIQtKgLegQIFRAB&biw=1536&bih=791&dpr=1.25&safe=active&ssui=on";
+const launchBtn = document.getElementById('launch');
+const hint = document.getElementById('hint');
+
+launchBtn.addEventListener('click', () => {
+  const win = window.open('about:blank', '_blank');
+
+  if (!win) {
+    hint.hidden = false;
+    return;
+  }
+
+  const iframeHtml = `
+    <!doctype html>
+    <html>
+    <head>
+      <title>TuffClient</title>
+      <style>html,body{margin:0;height:100%;background:#000;}iframe{border:0;width:100%;height:100%;}</style>
+    </head>
+    <body>
+      <iframe src="${TARGET_URL}" allowfullscreen></iframe>
+      <noscript>
+        <p style="color:#fff;text-align:center;margin-top:20px;">Enable JavaScript to use TuffClient.</p>
+      </noscript>
+    </body>
+    </html>
+  `;
+
+  try {
+    win.document.write(iframeHtml);
+    win.document.close();
+  } catch(e) {
+    hint.hidden = false;
+  }
+});
+</script>
+</body>
+</html>
